@@ -19,7 +19,15 @@ Now we install the requirements:
 ```
 pip install -r requirements.txt
 ```
-To run the project:
+To migrate apps:
+```
+python manage.py migrate
+```
+And to create an admin for the website:
+```
+python manage.py createsuperuser
+```
+Finally run the project:
 ```
 python manage.py runserver
 ```
