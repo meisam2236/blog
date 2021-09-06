@@ -1,1 +1,8 @@
+# virtual environment
 venv/
+# database
+db.sqlite3
+# migration
+website/migrations
+# python cache
+blog/__pycache__/
