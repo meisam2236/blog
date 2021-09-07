@@ -19,6 +19,22 @@ Now we install the requirements:
 ```
 pip install -r requirements.txt
 ```
+Create a .env file like this in the root directory:
+```
+POSTGRES_USER=admin
+POSTGRES_PASSWORD=2Cq8tohQUvhYfh
+POSTGRES_DB=postgres
+POSTGRES_HOST=localhost
+POSTGRES_PORT=5432
+```
+After installing docker on your machine, create volume and network and use docker-compose file:
+```
+docker volume create blog_postgresql
+docker network create blog_network
+docker-compose up -d
+```
+You can see your docker container using `docker ps -a`.
+
 To migrate apps:
 ```
 python manage.py migrate
@@ -32,3 +48,5 @@ Finally run the project:
 python manage.py runserver
 ```
 Visit the website in [localhost:8000](localhost:8000)
+
+

@@ -6,5 +6,6 @@ db.sqlite3
 website/migrations
 # python cache
 blog/__pycache__/
+website/__pycache__/
 # environment file
 .env
