@@ -35,9 +35,20 @@ docker-compose up -d
 ```
 You can see your docker container using `docker ps -a`.
 
+Also know that you can run sql commands in postgresql shell:
+```
+docker exec -it blog_postgresql psql -U admin -W postgres
+```
+Then enter the password from .env file.
+
 To migrate apps:
 ```
+python manage.py makemigrations website
 python manage.py migrate
+```
+As we use CKEditor for our website, we should copy static CKEditor required media resources into the directory:
+```
+python manage.py collectstatic
 ```
 And to create an admin for the website:
 ```

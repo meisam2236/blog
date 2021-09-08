@@ -9,3 +9,5 @@ blog/__pycache__/
 website/__pycache__/
 # environment file
 .env
+# static files
+files/
