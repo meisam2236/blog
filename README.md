@@ -46,10 +46,6 @@ To migrate apps:
 python manage.py makemigrations website
 python manage.py migrate
 ```
-As we use CKEditor for our website, we should copy static CKEditor required media resources into the directory:
-```
-python manage.py collectstatic
-```
 And to create an admin for the website:
 ```
 python manage.py createsuperuser
