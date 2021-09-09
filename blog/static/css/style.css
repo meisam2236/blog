@@ -1,0 +1,101 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url(Vazir.woff);
+  }
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: myFirstFont;
+}
+
+.header {
+    width: 100%;
+    min-height: 70px;
+    background-color: blue; /* For browsers that do not support gradients */
+    background-image: linear-gradient(to bottom right, rgb(26, 114, 230), rgb(0, 50, 212));
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav img {
+    width: 100px;
+    padding: 10px;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 20px;
+    list-style-type: none;
+}
+
+nav li {
+    padding-left: 35px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color:white;
+}
+
+nav ul li a:visited {
+    color:white;
+}
+
+nav ul li a:hover {
+    color:gray;
+}
+
+nav ul li a.active {
+    font-weight: bold;
+    color:gray;
+}
+
+.header-col {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 25px 45px 0px 45px;
+}
+
+.category-section {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-flow: row-reverse wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.category-button {
+    width: 170px;
+    height: 70px;
+    background-color: blue;
+    border-radius: 25px;
+    border: 2px solid #73AD21;
+    margin: 15px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-col-size {
+    width: 50%;
+}
+
+h1 {
+    direction: rtl;
+}
+
+p {
+    direction: rtl;
+}
+
+.category-button p {
+    padding-right: 15px;
+}
