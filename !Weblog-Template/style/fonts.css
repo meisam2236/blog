@@ -27,3 +27,9 @@
     src: url('../fonts/Vazir-Bold.woff2');
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'homa';
+    src: url('../fonts/B\ Homa.ttf');
+    font-style: normal;
+}
