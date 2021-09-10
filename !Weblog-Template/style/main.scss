@@ -64,6 +64,7 @@ body {
     padding-top: 1rem;
     padding-bottom: 1rem;
     background-color: map-get($colors, second);
+    border-bottom: 2px solid white;
 
     .main-header__menu {
         display: flex;
@@ -102,12 +103,15 @@ body {
                     padding-top: 1rem;
                     border-bottom-right-radius: 10px;
                     border-bottom-left-radius: 10px;
+                    border: 2px solid white;
+                    border-top: 0;
                     width: max-content;
                     box-shadow: 5px 5px 30px #80808038;
                     text-align: right;
-                    top: 2.9rem;
+                    top: 2.95rem;
                     left: -1.5rem;
                     display: none;
+                    z-index: 5;
 
                     a {
                         color: map-get($colors, light);
@@ -158,6 +162,56 @@ body {
                     color: map-get($colors, main);
                 }
             }
+        }
+    }
+}
+
+.main-page-con {
+    background-color: map-get($colors, second);
+    margin: 0%;
+    .baner {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 5rem;
+        padding-bottom: 3rem;
+    
+        .baner__desc {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            text-align: center;
+            width: 100%;
+            
+            h1 {
+                margin-bottom: 2rem;
+                color: map-get($colors, white);
+            }
+            p {
+                color: map-get($colors, white);
+            }
+            .baner__category {
+                padding: 1rem;
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                a {
+                    padding: 0.5rem;
+                    background-color: map-get($colors, white);
+                    color: map-get($colors, main);
+                    border-radius: 5px;
+                    margin: 0.5rem;
+                }
+                a:hover {
+                    box-shadow: 0px 0px 10px map-get($colors, light)
+                }
+            }
+        }
+    
+        .baner__img img{
+            width: 20rem;
         }
     }
 }

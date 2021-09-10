@@ -44,7 +44,8 @@ body {
   justify-content: space-around;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  background-color: #0096c7; }
+  background-color: #0096c7;
+  border-bottom: 2px solid white; }
   .main-header .main-header__menu {
     display: flex;
     align-items: center; }
@@ -75,12 +76,15 @@ body {
           padding-top: 1rem;
           border-bottom-right-radius: 10px;
           border-bottom-left-radius: 10px;
+          border: 2px solid white;
+          border-top: 0;
           width: max-content;
           box-shadow: 5px 5px 30px #80808038;
           text-align: right;
-          top: 2.9rem;
+          top: 2.95rem;
           left: -1.5rem;
-          display: none; }
+          display: none;
+          z-index: 5; }
           .main-header .main-header__menu ul li:nth-child(2) div a {
             color: #e8fbff;
             width: 100%;
@@ -118,5 +122,43 @@ body {
         .main-header .main-header__search form button i {
           font-weight: lighter;
           color: #0077b6; }
+
+.main-page-con {
+  background-color: #0096c7;
+  margin: 0%; }
+  .main-page-con .baner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 5rem;
+    padding-bottom: 3rem; }
+    .main-page-con .baner .baner__desc {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+      width: 100%; }
+      .main-page-con .baner .baner__desc h1 {
+        margin-bottom: 2rem;
+        color: white; }
+      .main-page-con .baner .baner__desc p {
+        color: white; }
+      .main-page-con .baner .baner__desc .baner__category {
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap; }
+        .main-page-con .baner .baner__desc .baner__category a {
+          padding: 0.5rem;
+          background-color: white;
+          color: #0077b6;
+          border-radius: 5px;
+          margin: 0.5rem; }
+        .main-page-con .baner .baner__desc .baner__category a:hover {
+          box-shadow: 0px 0px 10px #e8fbff; }
+    .main-page-con .baner .baner__img img {
+      width: 20rem; }
 
 /*# sourceMappingURL=main.css.map */
