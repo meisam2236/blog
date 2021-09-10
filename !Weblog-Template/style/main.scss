@@ -82,6 +82,10 @@ body {
                 font-family: Vazir;
                 font-size: 1rem;
                 color: map-get($colors, white );
+
+                &:hover {
+                    text-shadow: 0px 0px 10px white;
+                }
             }
             li[active] a{
                 text-shadow: 0px 0px 10px white;
