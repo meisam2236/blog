@@ -41,11 +41,9 @@ body {
 
 .main-header {
   display: flex;
-  justify-content: space-around;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  background-color: #0096c7;
-  border-bottom: 2px solid white; }
+  justify-content: space-between;
+  background-color: #003e9b;
+  padding: 1rem 3rem; }
   .main-header .main-header__menu {
     display: flex;
     align-items: center; }
@@ -71,13 +69,10 @@ body {
           position: absolute;
           display: flex;
           flex-direction: column;
-          background-color: #0096c7;
+          background-color: #e8fbff;
           padding: 0.5rem;
           padding-top: 1rem;
-          border-bottom-right-radius: 10px;
-          border-bottom-left-radius: 10px;
-          border: 2px solid white;
-          border-top: 0;
+          border-radius: 1rem;
           width: max-content;
           box-shadow: 5px 5px 30px #80808038;
           text-align: right;
@@ -86,7 +81,7 @@ body {
           display: none;
           z-index: 5; }
           .main-header .main-header__menu ul li:nth-child(2) div a {
-            color: #e8fbff;
+            color: #003e9b;
             width: 100%;
             margin-bottom: 1rem;
             margin-right: 0%;
@@ -113,7 +108,7 @@ body {
         opacity: 0.8; }
       .main-header .main-header__search form input:active, .main-header .main-header__search form input:focus {
         opacity: 1;
-        box-shadow: 2px 2px 5px #e8fbff; }
+        box-shadow: 0px 0px 5px #e8fbff; }
       .main-header .main-header__search form button {
         position: absolute;
         background-color: #f5deb300;
@@ -124,7 +119,7 @@ body {
           color: #0077b6; }
 
 .main-page-con {
-  background-color: #0096c7;
+  background-color: #003e9b;
   margin: 0%; }
   .main-page-con .baner {
     display: flex;
@@ -138,7 +133,7 @@ body {
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      text-align: center;
+      text-align: right;
       width: 100%; }
       .main-page-con .baner .baner__desc h1 {
         margin-bottom: 2rem;
@@ -153,9 +148,11 @@ body {
         .main-page-con .baner .baner__desc .baner__category a {
           padding: 0.5rem;
           background-color: white;
-          color: #0077b6;
-          border-radius: 5px;
-          margin: 0.5rem; }
+          color: #003e9b;
+          border-radius: 15px;
+          min-width: 7rem;
+          margin: 0.5rem;
+          text-align: center; }
         .main-page-con .baner .baner__desc .baner__category a:hover {
           box-shadow: 0px 0px 10px #e8fbff; }
     .main-page-con .baner .baner__img img {
