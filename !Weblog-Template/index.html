@@ -24,13 +24,14 @@
 </head>
 <body>
     <header>
-        <div class="main-header">
-            <div class="main-header__menu">
+        <div class="main-header row">
+            <div class="main-header__menu col-md-6">
                 <img src="static/media/logo-whi.png" alt="logo">
                 <ul>
                     <li><a href="#">خانه</a></li>
                     <li>
-                        <a href="#">دسته بندی</a>
+                        <!-- <a href="#">دسته بندی</a> -->
+                        <span>دسته بندی</span>
                         <div>
                             <a href="">دسته اول</a>
                             <a href="">دسته دوم</a>
@@ -42,8 +43,9 @@
                     <li active><a href="#">درباره من</a></li>
                     <li><a href="#">تماس با من</a></li>
                 </ul>
+                <div class="menu-back"></div>
             </div>
-            <div class="main-header__search">
+            <div class="main-header__search col-md-6">
                 <form action="">
                     <input type="text" placeholder="جستجو کنید ...">
                     <button type="submit"><i class="fas fa-search"></i></button>
@@ -54,7 +56,7 @@
     <main>
         <div class="main-page-con ">
             <div class="container row baner">
-                <div class="col col-sm-7 baner__desc">
+                <div class="col-md-7 baner__desc">
                     <h1>مباحث پیشرفته پایتون را به طور کامل فرا گیرید.</h1>
                     <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
                     <div class="baner__category">
@@ -65,7 +67,7 @@
                         <a href="">پروژه</a>
                     </div>
                 </div>
-                <div class="col col-sm-5 baner__img">
+                <div class="col-md-5 baner__img">
                     <img src="static/media/baner-img.png" alt="">
                 </div>
             </div>
@@ -73,10 +75,10 @@
         <div class="container main-articles">
             <!-- NEW Article -->
             <article class="new-article row">
-                <div class="col col-md-7 new-article__image">
+                <div class="col-md-7 new-article__image">
                     <a href=""><img src="static/media/img1.jpg" alt=""></a>
                 </div>
-                <div class="col col-md-5">
+                <div class="col-md-5">
                     <div class="article-detail">
                         <div class="article-detail__top">
                             <a href="">پایتون</a>
