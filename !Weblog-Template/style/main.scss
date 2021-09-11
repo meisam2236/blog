@@ -278,7 +278,7 @@ body {
 }
 .main-articles {
     margin-top: 2rem;
-    padding-bottom: 30rem;
+    padding-bottom: 2rem;
     .new-article {
         background-color: map-get($colors, alter);
         border-radius: 15px;
@@ -301,10 +301,13 @@ body {
     }
     .older-articles {
         margin-top: 2rem;
+        display: flex;
         justify-content:space-around;
+        flex-wrap: wrap;
 
         .article-card {
             background-color: map-get($colors, alter);
+            width: 350px;
             border-radius: 15px;
             padding: 0;
             overflow: hidden;
@@ -318,9 +321,56 @@ body {
                 padding: 1rem;
                 p {
                     -webkit-line-clamp: 2 !important;
+                    font-family: Vazir-thin;
+                    font-size: 0.9rem;
                 }
             }
         }
+        .article-card:hover {
+            transform: scale(1.03);
+            z-index: 6;
+        }
 
     }
+    .main-articles__all {
+        display: flex;
+        width: 70%;
+        margin: 2rem auto;
+        justify-content: center;
+        text-align: center;
+        padding: 1rem;
+        background-color: map-get($colors, second);
+        border-radius: 15px;
+        color: map-get($colors, white);
+    }
+}
+
+footer {
+    width: 100%;
+    min-height: 10rem;
+    background-color: map-get($colors, main);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
+    .footer-ref {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 2rem;
+        text-align: center;
+        
+        a {
+            color: map-get($colors, white);
+            min-width: 10rem;
+            padding: 0 2rem;
+            margin: 2rem;
+            font-size: 1.2rem;
+        }
+        a:hover {
+            text-shadow: 0px 0px 10px map-get($colors, light);
+        }
+    }
+
 }
