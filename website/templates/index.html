@@ -1,74 +1,154 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <!--- basic page needs
-        ================================================== -->
-        <meta charset="utf-8">
-        <title>Get from website</title>
-        
-        <!-- mobile specific metas
-        ================================================== -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <!-- CSS
-        ================================================== -->
-        <link rel="stylesheet" type="text/css" href="static/css/style.css">
-    
-        <!-- script
-        ================================================== -->
-        <script src="static/js/base.js"></script>
-    
-        <!-- favicons
-        ================================================== -->
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-        <link rel="icon" href="favicon.ico" type="image/x-icon">
-    </head>
-    <section class="header">
-        <nav>
-            <a href="index.html"><img src="static/images/logo.png"></a>
-            <div>
+<html dir="rtl" lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- meta tags -->
+    <meta name="description" content="آموزش کامل زبان برنامه نویسی پایتون">
+    <meta name="keywords" content="پایتون، برنامه نویسی، جنگو">
+    <meta name="author" content="MeisamT">
+    <!-- og -->
+    <meta property="og:title" content="MeisamT"/>
+    <meta property="og:url" content="https://meisamt.ir/"/>
+    <meta property="og:description" content="آموزش کامل زبان برنامه نویسی پایتون"/>
+    <!-- <meta property="og:image" content="images/icon.png"/> -->
+    <meta property="og:type" content="Art Gallery"/>
+    <title>MeisamT</title>
+    <!-- HeaderReferences -->
+    <link rel="shortcut icon" type="image/png" href="static/media/logo.png">
+    <link rel="stylesheet" href="static/style/bootstrap.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/style/main.css">
+</head>
+<body>
+    <header>
+        <div class="main-header">
+            <div class="main-header__menu">
+                <img src="static/media/logo-whi.png" alt="logo">
                 <ul>
-                    <li><a class="active" href="index.html">خانه</a></li>
-                    <li><a href="category.html">دسته بندی</a></li>
-                    <li><a href="info.html">درباره من</a></li>
-                    <li><a href="call.html">تماس با من</a></li>
+                    <li><a href="#">خانه</a></li>
+                    <li>
+                        <a href="#">دسته بندی</a>
+                        <div>
+                            {% for category in categories %}
+                            <a href="">{{category.title}}</a>
+                            {% endfor %}
+                        </div>
+                    </li>
+                    <li active><a href="#">درباره من</a></li>
+                    <li><a href="#">تماس با من</a></li>
                 </ul>
             </div>
-        </nav>
-        <div class="header-col">
-            <div class="header-col-size">
-                <h1>مباحث پایه ای پایتون را به راحتی بیاموزید.</h1>
-                <p>در این سایت تمام مباحث پایتون به طور کامل درس داده شده و در این مجموعه تمام ...</p>
-                <div class="category-section">
-                    <div class="category-button">
-                        <img alt="python">
-                        <p>پایتون</p>
-                    </div>
-                    <div class="category-button">
-                        <img alt="python">
-                        <p>پایتون</p>
-                    </div>
-                    <div class="category-button">
-                        <img alt="python">
-                        <p>پایتون</p>
-                    </div>
-                    <div class="category-button">
-                        <img alt="python">
-                        <p>پایتون</p>
-                    </div>
-                    <div class="category-button">
-                        <img alt="python">
-                        <p>پایتون</p>
-                    </div>
-                    <div class="category-button">
-                        <img alt="python">
-                        <p>پایتون</p>
-                    </div>
-                </div>
-            </div>
-            <div class="header-col-size">
-                <img>
+            <div class="main-header__search">
+                <form action="">
+                    <input type="text" placeholder="جستجو کنید ...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
             </div>
         </div>
-    </section>
+    </header>
+    <main>
+        <div class="main-page-con ">
+            <div class="container row baner">
+                <div class="col col-sm-7 baner__desc">
+                    <h1>مباحث پیشرفته پایتون را به طور کامل فرا گیرید.</h1>
+                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
+                    <div class="baner__category">
+                        {% for category in categories %}
+                        <a href="">{{category.title}}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col col-sm-5 baner__img">
+                    <img src="static/media/baner-img.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="container main-articles">
+            <!-- NEW Article -->
+            <article class="new-article row">
+                <div class="col col-md-7 new-article__image">
+                    <a href=""><img src="{{last_article.cover}}" alt=""></a>
+                </div>
+                <div class="col col-md-5">
+                    <div class="article-detail">
+                        <div class="article-detail__top">
+                            <a href="">{{last_article.category}}</a>
+                            <span><i class="fas fa-calendar"></i>{{last_article.createdDate}}</span>
+                        </div>
+                        <div class="article-detail__desc">
+                            <a href=""><h3 title="{{last_article.title}}">{{last_article.title}}</h3></a>
+                            <p>{{last_article.content}}</p>
+                            <a href=""><span>ادامه ی مطلب<i class="fas fa-chevron-circle-right"></i></span></a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <!-- OLDER Articles -->
+            <div class="older-articles row">
+                {% for article in article_data %}
+                    <article class="article-card">
+                        <a href=""><img src="{{article.cover}}" alt=""></a>
+                        <div class="article-detail">
+                            <div class="article-detail__top">
+                                <a href="">{{article.category}}</a>
+                                <span><i class="fas fa-calendar"></i>{{article.createdDate}}</span>
+                            </div>
+                            <div class="article-detail__desc">
+                                <a href="" data-toggle="tooltip" title='{{article.title}}' data-placement='auto'><h3>{{article.title}}</h3></a>
+                                <p>{{article.content}}</p>
+                                <a href=""><span>ادامه ی مطلب<i class="fas fa-chevron-circle-right"></i></span></a>
+                                <h3></h3>
+                            </div>
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+            <div class="counter-box">
+                <a href=""><div class="main-articles__all">مطالب جدیدتر</div></a>
+                <a href=""><div class="main-articles__all">مطالب قدیمی تر</div></a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-ref">
+            <div class="newsletters">
+                <span>خبر نامه</span>
+                <form action="">
+                    <input type="email" placeholder="ایمیل">
+                    <input type="submit" value="مشترک شوید">
+                </form>
+            </div>
+            <div class="category-footer">
+                <span>دسته بندی</span>
+                <ul>
+                    {% for category in categories %}
+                    <li><a href="">{{category.title}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="popular-posts">
+                <span>محبوب تریت پست ها</span>
+                <ul>
+                    <li><a href="">آشنایی با پشته – الگوریتم ها و ساختمان داده(قسمت 3)</a></li>
+                    <li><a href="">برنامه نویسی تابعی (آموزش 2)</a></li>
+                    <li><a href="">توابع بازگشتی (آموزش 1)</a></li>
+                    <li><a href="">مقدمه ای بر الگوریتم ها – الگوریتم ها و ساختمان داده(قسمت 1)</a></li>
+                    <li><a href="">داکر چیست – آموزش داکر (قسمت 1)</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copy-right">
+            <span>کپی رایت © 1400 MeisamT</span>
+        </div>
+    </footer>
+</body>
+    <!-- FooterReferences -->
+    <script src="static/script/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="static/script/bootstrap.bundle.js"></script>
+    <script src="static/script/base.js"></script>
+    <script>AOS.init();</script>
 </html>

@@ -11,3 +11,5 @@ website/__pycache__/
 .env
 # static files
 files/
+# ide files
+.idea
