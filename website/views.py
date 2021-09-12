@@ -68,3 +68,76 @@ class SingleArticleAPIView(APIView):
             return Response({'data': data}, status=status.HTTP_200_OK)
         except:
             return Response({'status': 'Internal Server Error'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+class SearchArticleAPIView(APIView):
+    def get(self, request, format=None):
+        try:
+            from django.db.models import Q
+            query = request.GET['query']
+            articles = Article.objects.filter(Q(content__icontains=query))
+            data = []
+            for article in articles:
+                data.append({
+                    'title': article.title,
+                    'cover': article.cover.url if article.cover.url else None,
+                    'content': article.content,
+                    'createdDate': dateConvertor(article.createdDate.date()),
+                    'category': article.category.title,
+                    'author': article.author.user.first_name + ' ' + article.author.user.last_name
+                })
+            return Response({'data': data}, status=status.HTTP_200_OK)
+        except:
+            return Response({'status': 'Internal Server Error'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+class SubmitArticleAPIView(APIView):
+    def post(self, request, format=None):
+        try:
+            serializedData = serializers.SubmitArticleSerializer(data=request.data)
+            if serializedData.is_valid():
+                title = serializedData.data.get('title')
+                cover = request.FILES['cover']
+                content = serializedData.data.get('content')
+                categoryID = serializedData.data.get('categoryID')
+                authorID = serializedData.data.get('authorID')
+            else:
+                return Response({'status':'Bad Request'}, status=status.HTTP_400_BAD_REQUEST)
+            user = User.objects.get(id=authorID)
+            author = CustomUser.objects.get(user=user)
+            category = Category.objects.get(id=categoryID)
+            article = Article()
+            article.title = title
+            article.cover = cover 
+            article.content = content
+            article.author = author
+            article.category = category
+            article.save()
+            return Response({'status': 'OK'}, status=status.HTTP_200_OK)
+        except:
+            return Response({'status': 'Internal Server Error'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+class CoverUpdateArticleAPIView(APIView):
+    def post(self, request):
+        try:
+            serializedData = serializers.CoverUpdateArticleSerializer(data=request.data)
+            if serializedData.is_valid():
+                articleID = serializedData.data.get('articleID')
+                cover = request.FILES['cover']
+            else:
+                return Response({'status':'Bad Request'}, status=status.HTTP_400_BAD_REQUEST)
+            Article.objects.filter(id=articleID).update(cover=cover)
+            return Response({'status': 'OK'}, status=status.HTTP_200_OK)
+        except:
+            return Response({'status': 'Internal Server Error'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+class DeleteArticleAPIView(APIView):
+    def post(self, request):
+        try:
+            serializedData = serializers.DeleteArticleSerializer(data=request.data)
+            if serializedData.is_valid():
+                articleID = serializedData.data.get('articleID')
+            else:
+                return Response({'status':'Bad Request'}, status=status.HTTP_400_BAD_REQUEST)
+            Article.objects.filter(id=articleID).delete()
+            return Response({'status': 'OK'}, status=status.HTTP_200_OK)
+        except:
+            return Response({'status': 'Internal Server Error'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
