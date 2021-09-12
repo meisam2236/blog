@@ -25,7 +25,7 @@
 <body>
     <header>
         <div class="main-header row">
-            <div class="main-header__menu col-md-6">
+            <div class="main-header__menu col-md-8">
                 <img src="static/media/logo-whi.png" alt="logo">
                 <ul>
                     <li><a href="#">خانه</a></li>
@@ -41,9 +41,11 @@
                     <li active><a href="#">درباره من</a></li>
                     <li><a href="#">تماس با من</a></li>
                 </ul>
+                <div class="collpase-menu"><i class="fas fa-bars"></i>منو</div>
                 <div class="menu-back"></div>
+                <div class="blackBack"></div>
             </div>
-            <div class="main-header__search col-md-6">
+            <div class="main-header__search col-md-4">
                 <form action="">
                     <input type="text" placeholder="جستجو کنید ...">
                     <button type="submit"><i class="fas fa-search"></i></button>
@@ -70,7 +72,7 @@
         </div>
         <div class="container main-articles">
             <!-- NEW Article -->
-            <article class="new-article row">
+            <article class="new-article row aos-init" data-aos="fade-up" data-aos-once="true">
                 <div class="col-md-7 new-article__image">
                     <a href=""><img src="{{last_article.cover}}" alt=""></a>
                 </div>
@@ -81,7 +83,7 @@
                             <span><i class="fas fa-calendar"></i>{{last_article.createdDate}}</span>
                         </div>
                         <div class="article-detail__desc">
-                            <a href=""><h3 title="{{last_article.title}}">{{last_article.title}}</h3></a>
+                            <a href="" data-toggle="tooltip" title='{{last_article.title}}' data-placement='auto'><h3 title="{{last_article.title}}">{{last_article.title}}</h3></a>
                             <p>{{last_article.content}}</p>
                             <a href=""><span>ادامه ی مطلب<i class="fas fa-chevron-circle-right"></i></span></a>
                         </div>
@@ -91,8 +93,8 @@
             <!-- OLDER Articles -->
             <div class="older-articles row">
                 {% for article in article_data %}
-                    <article class="article-card">
-                        <a href=""><img src="{{article.cover}}" alt=""></a>
+                <article class="article-card aos-init" data-aos="zoom-in" data-aos-once="true">
+                    <a href=""><img src="{{article.cover}}" alt=""></a>
                         <div class="article-detail">
                             <div class="article-detail__top">
                                 <a href="">{{article.category}}</a>
