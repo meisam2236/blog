@@ -13,3 +13,5 @@ website/__pycache__/
 files/
 # ide files
 .idea
+# sass cache
+static/.sass-cache

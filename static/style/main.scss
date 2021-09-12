@@ -139,10 +139,13 @@ body {
     flex-wrap: wrap;
     background-color: map-get($colors, second);
     padding: 1rem 3rem;
+    margin-left: 0%;
 
     .main-header__menu {
+        position: relative;
         display: flex;
         align-items: center;
+        z-index: 5;
 
         img {
             width: 3rem;
@@ -151,9 +154,10 @@ body {
             display: flex;
             margin-right: 1rem;
             align-items: baseline;
+            z-index: 50;
 
             li a {
-                margin-right: 1rem;
+                margin-right: 2rem;
                 font-family: Vazir;
                 font-size: 1rem;
                 color: map-get($colors, white );
@@ -167,6 +171,17 @@ body {
             }
             & li:nth-child(2) {
                 position: relative;
+
+                span {
+                    margin-right: 2rem;
+                    font-family: Vazir;
+                    font-size: 1rem;
+                    color: map-get($colors, white );
+                    cursor: pointer;
+                    &:hover {
+                        text-shadow: 0px 0px 10px white;
+                    }
+                }
                 div {
                     position: absolute;
                     display: flex;
@@ -181,7 +196,7 @@ body {
                     top: 2.3rem;
                     left: -3rem;
                     display: none;
-                    z-index: 10;
+                    z-index: 100;
 
                     a {
                         color: map-get($colors, second);
@@ -203,12 +218,26 @@ body {
                     100% {top : 2.3rem ; opacity: 1}
                 }
             }
+            & li:nth-child(2)[active] span {
+                text-shadow: 0px 0px 10px white;
+                font-size: 1.1rem;
+            }
+        }
+        .menu-back {
+            position: absolute;
+            width: 8.5rem;
+            height: 17rem;
+            right: 10rem;
+            top: 0rem;
+            background-color: rgba(255, 0, 0, 0);
+            z-index: 10;
         }
     }
     .main-header__search {
         display: flex;
         align-items: center;
         transform: scale(1.08);
+        justify-content: end;
 
         form {
             position: relative;
@@ -232,8 +261,30 @@ body {
             }
         }
     }
+    @media (max-width: 767px) {
+        justify-content: center;
+        .main-header__menu {
+            justify-content: center;
+        }
+        .main-header__search {
+            margin-top: 1.5rem;
+            width: 70%;
+            form {
+                width: 100%;
+                input {
+                    width: 100%;
+                }
+            }
+        }
+    }
+    @media (max-width: 486px) {
+        .main-header__menu {
+            ul li a {
+                text-align: center;
+            }
+        }
+    }
 }
-
 .main-page-con {
     background-color: map-get($colors, second);
     margin: 0%;
@@ -286,6 +337,11 @@ body {
         .baner__img img{
             width: 20rem;
         }
+        @media (max-width:350px) {
+            .baner__img img{
+                width: 17rem;
+            }
+        }
     }
 }
 .main-articles {
@@ -296,7 +352,6 @@ body {
         border-radius: 15px;
         padding: 1rem;
         box-shadow: 0px 0px 5px #80808088;
-
         .new-article__image {
             width: 30rem;
             height: 20rem;
@@ -310,6 +365,13 @@ body {
         }
         .article-detail {
             @include article_detail();
+
+            @media (max-width: 767px) {
+                margin-top: 1rem;
+            }
+        }
+        @media (max-width: 767px) {
+            margin: 0.5rem;
         }
     }
     .new-article:hover {
@@ -342,6 +404,9 @@ body {
                     font-size: 0.9rem;
                 }
             }
+            @media (max-width: 992px) {
+                width: 250px;
+            }
         }
         .article-card:hover {
             @include card_hover();
@@ -367,6 +432,13 @@ body {
             }
             &:hover {
                 transform: scale(1.02);
+            }
+            @media (max-width: 768px) {
+                max-width: 11rem ;
+                .main-articles__all {
+                    margin: 0.5rem auto;
+                    max-width: 11rem;
+                }
             }
         }
     }
@@ -403,10 +475,14 @@ footer {
                     padding-right: 1rem;
                 }
                 & input:last-child {
-                    background-color: map-get($colors, alter);
-                    color: map-get($colors, second);
+                    // background-color: map-get($colors, alter);
+                    background-image: linear-gradient(165deg, map-get($colors, main) 0%,#237099 100%);
+                    color: map-get($colors, white);
+                    transition: 0.5s;
                     &:hover {
                         @include a_hover();
+                        background-image: linear-gradient(165deg, map-get($colors, white) 0%,#6fb2d6 100%);
+                        color: map-get($colors, main);
                     }
                 }
                 @include input_active();
@@ -416,8 +492,9 @@ footer {
             li {
                 background-color: map-get($colors, white);
                 padding: 0.3rem 1rem;
-                margin: 0.3rem;
+                margin: 0.3rem 0;
                 border-radius: 20px;
+                text-align: center;
                 a {
                     color: map-get($colors, second);
                 }
@@ -429,8 +506,9 @@ footer {
         .popular-posts {
             ul {
                 padding-right: 0.5rem;
+                margin-right: 0.7rem;
                 li {
-                    font-size: 1.0.5rem;
+                    font-size: 1rem;
                     margin-bottom: 0.7rem;
                     list-style-type: disc;
                     a {
@@ -440,6 +518,9 @@ footer {
                         }
                     }
                 }
+            }
+            @media (max-width:440px) {
+                padding: 0%;
             }
         }
 
@@ -461,5 +542,4 @@ footer {
         color: map-get($colors, white);
         padding-bottom: 2rem;
     }
-
 }

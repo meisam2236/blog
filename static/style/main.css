@@ -44,18 +44,22 @@ body {
   justify-content: space-between;
   flex-wrap: wrap;
   background-color: #003e9b;
-  padding: 1rem 3rem; }
+  padding: 1rem 3rem;
+  margin-left: 0%; }
   .main-header .main-header__menu {
+    position: relative;
     display: flex;
-    align-items: center; }
+    align-items: center;
+    z-index: 5; }
     .main-header .main-header__menu img {
       width: 3rem; }
     .main-header .main-header__menu ul {
       display: flex;
       margin-right: 1rem;
-      align-items: baseline; }
+      align-items: baseline;
+      z-index: 50; }
       .main-header .main-header__menu ul li a {
-        margin-right: 1rem;
+        margin-right: 2rem;
         font-family: Vazir;
         font-size: 1rem;
         color: white; }
@@ -66,6 +70,14 @@ body {
         font-size: 1.1rem; }
       .main-header .main-header__menu ul li:nth-child(2) {
         position: relative; }
+        .main-header .main-header__menu ul li:nth-child(2) span {
+          margin-right: 2rem;
+          font-family: Vazir;
+          font-size: 1rem;
+          color: white;
+          cursor: pointer; }
+          .main-header .main-header__menu ul li:nth-child(2) span:hover {
+            text-shadow: 0px 0px 10px white; }
         .main-header .main-header__menu ul li:nth-child(2) div {
           position: absolute;
           display: flex;
@@ -80,7 +92,7 @@ body {
           top: 2.3rem;
           left: -3rem;
           display: none;
-          z-index: 10; }
+          z-index: 100; }
           .main-header .main-header__menu ul li:nth-child(2) div a {
             color: #003e9b;
             width: 100%;
@@ -98,10 +110,22 @@ body {
   100% {
     top: 2.3rem;
     opacity: 1; } }
+      .main-header .main-header__menu ul li:nth-child(2)[active] span {
+        text-shadow: 0px 0px 10px white;
+        font-size: 1.1rem; }
+    .main-header .main-header__menu .menu-back {
+      position: absolute;
+      width: 8.5rem;
+      height: 17rem;
+      right: 10rem;
+      top: 0rem;
+      background-color: rgba(255, 0, 0, 0);
+      z-index: 10; }
   .main-header .main-header__search {
     display: flex;
     align-items: center;
-    transform: scale(1.08); }
+    transform: scale(1.08);
+    justify-content: end; }
     .main-header .main-header__search form {
       position: relative; }
       .main-header .main-header__search form input {
@@ -119,6 +143,21 @@ body {
         .main-header .main-header__search form button i {
           font-weight: lighter;
           color: #0077b6; }
+  @media (max-width: 767px) {
+    .main-header {
+      justify-content: center; }
+      .main-header .main-header__menu {
+        justify-content: center; }
+      .main-header .main-header__search {
+        margin-top: 1.5rem;
+        width: 70%; }
+        .main-header .main-header__search form {
+          width: 100%; }
+          .main-header .main-header__search form input {
+            width: 100%; } }
+  @media (max-width: 486px) {
+    .main-header .main-header__menu ul li a {
+      text-align: center; } }
 
 .main-page-con {
   background-color: #003e9b;
@@ -162,6 +201,9 @@ body {
           transform: scale(1.03); }
     .main-page-con .baner .baner__img img {
       width: 20rem; }
+    @media (max-width: 350px) {
+      .main-page-con .baner .baner__img img {
+        width: 17rem; } }
 
 .main-articles {
   margin-top: 2rem;
@@ -223,6 +265,12 @@ body {
           .main-articles .new-article .article-detail .article-detail__desc span i {
             transform: rotate(180deg);
             margin-right: 0.5rem; }
+      @media (max-width: 767px) {
+        .main-articles .new-article .article-detail {
+          margin-top: 1rem; } }
+    @media (max-width: 767px) {
+      .main-articles .new-article {
+        margin: 0.5rem; } }
   .main-articles .new-article:hover {
     transform: scale(1.03);
     z-index: 6;
@@ -292,6 +340,9 @@ body {
           -webkit-line-clamp: 2 !important;
           font-family: Vazir-thin;
           font-size: 0.9rem; }
+      @media (max-width: 992px) {
+        .main-articles .older-articles .article-card {
+          width: 250px; } }
     .main-articles .older-articles .article-card:hover {
       transform: scale(1.03);
       z-index: 6;
@@ -315,6 +366,12 @@ body {
         display: inline-block; }
       .main-articles .counter-box a:hover {
         transform: scale(1.02); }
+      @media (max-width: 768px) {
+        .main-articles .counter-box a {
+          max-width: 11rem; }
+          .main-articles .counter-box a .main-articles__all {
+            margin: 0.5rem auto;
+            max-width: 11rem; } }
 
 footer {
   width: 100%;
@@ -339,32 +396,40 @@ footer {
     footer .footer-ref .newsletters form input:first-child {
       padding-right: 1rem; }
     footer .footer-ref .newsletters form input:last-child {
-      background-color: #d4f0f5;
-      color: #003e9b; }
+      background-image: linear-gradient(165deg, #0077b6 0%, #237099 100%);
+      color: white;
+      transition: 0.5s; }
       footer .footer-ref .newsletters form input:last-child:hover {
-        box-shadow: 0px 0px 10px #e8fbff; }
+        box-shadow: 0px 0px 10px #e8fbff;
+        background-image: linear-gradient(165deg, white 0%, #6fb2d6 100%);
+        color: #0077b6; }
     footer .footer-ref .newsletters form input:active, footer .footer-ref .newsletters form input:focus {
       opacity: 1;
       box-shadow: 0px 0px 5px #e8fbff; }
     footer .footer-ref .category-footer li {
       background-color: white;
       padding: 0.3rem 1rem;
-      margin: 0.3rem;
-      border-radius: 20px; }
+      margin: 0.3rem 0;
+      border-radius: 20px;
+      text-align: center; }
       footer .footer-ref .category-footer li a {
         color: #003e9b; }
       footer .footer-ref .category-footer li:hover {
         box-shadow: 0px 0px 10px #e8fbff; }
     footer .footer-ref .popular-posts ul {
-      padding-right: 0.5rem; }
+      padding-right: 0.5rem;
+      margin-right: 0.7rem; }
       footer .footer-ref .popular-posts ul li {
-        font-size: 1 0.5rem;
+        font-size: 1rem;
         margin-bottom: 0.7rem;
         list-style-type: disc; }
         footer .footer-ref .popular-posts ul li a {
           color: white; }
           footer .footer-ref .popular-posts ul li a:hover {
             text-shadow: 0px 0px 10px #e8fbff; }
+    @media (max-width: 440px) {
+      footer .footer-ref .popular-posts {
+        padding: 0%; } }
     footer .footer-ref span {
       display: block;
       margin-bottom: 0.5rem;
