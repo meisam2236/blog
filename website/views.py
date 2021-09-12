@@ -5,6 +5,7 @@ import jdatetime
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from . import serializers
 
 def dateConvertor(date):
     persianDate = str(jdatetime.date.fromgregorian(day=date.day,month=date.month,year=date.year))
@@ -53,6 +54,17 @@ class AllArticleAPIView(APIView):
                     'category': article.category.title,
                     'author': article.author.user.first_name + ' ' + article.author.user.last_name
                 })
+            return Response({'data': data}, status=status.HTTP_200_OK)
+        except:
+            return Response({'status': 'Internal Server Error'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+class SingleArticleAPIView(APIView):
+    def get(self, request, format=None):
+        try:
+            articleTitle = request.GET['article_title']
+            article = Article.objects.filter(title__contains=articleTitle)
+            serializedData = serializers.SingleArticleSerializer(article, many=True)
+            data = serializedData.data
             return Response({'data': data}, status=status.HTTP_200_OK)
         except:
             return Response({'status': 'Internal Server Error'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

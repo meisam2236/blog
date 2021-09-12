@@ -56,4 +56,8 @@ python manage.py runserver
 ```
 Visit the website in [localhost:8000](localhost:8000)
 
-
+### API usage
+| usage | address |
+| ----- |:-------:|
+|get all articles | /article/all |
+|search articles by title | /article/?article_title=title |
